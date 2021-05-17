@@ -1,0 +1,15 @@
+<!-- data is picked up from different extended pages (into blocks as specified below) & displayed in this html page -->
+
+<!-- <h1> This is BASE</h1> -->
+
+<head>
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<!-- This is code for displaying all flashed messages from app.py -->
+{% for message in get_flashed_messages() %}
+<h2>{{ message }}</h2>
+{% endfor %}
+
+{% block test %}
+{% endblock %}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends 'base.html' %}
+
+{% block title %}URL for "{{code1}}"{% endblock %}
+
+{% block test %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>your URL</title>
+</head>
+<body>
+    <h1>your URL:</h1>
+    <h2>{{ code1 }}</h2>
+
+    <p>Go back to home page:</p>
+    <p><a href="{{ url_for('home') }}">Home</a></p>
+</body>
+</html>
+
+{% endblock %}

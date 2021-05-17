@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends 'base.html' %}
+
+{% block title %}URL Shortener{% endblock %}
+
+{% block test %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+</head>
+<body>
+    <h1>URL Shortener</h1>
+    <!--<h2>{{ var1 }}</h2>-->
+
+    <!-- moved to base.html to be shown as common template
+    This is code for displaying all flashed messages from app.py
+    {% for message in get_flashed_messages() %}
+    <h2>{{ message }}</h2>
+    {% endfor %}
+    -->
+
+    <form action="your-url" method="post">
+        <label>Website URL</label>
+            <input type="url" name="url" value="" required>
+            <br>
+        <label>Short Name</label>
+            <input type="text" name="code1" value="" required>
+            <br>
+        <input type="submit" value="Shorten">
+    </form>
+    <br>
+    <br>
+    <form action="your-url" method="post" enctype="multipart/form-data">
+        <label>File</label>
+            <input type="file" name="file" value="" required>
+            <br>
+        <label>Short Name</label>
+            <input type="text" name="code1" value="" required>
+            <br>
+        <input type="submit" value="Shorten">
+    </form>
+
+    {% if codes %}
+        <h2> Codes you have created: </h2>
+        <ul>
+            {% for code in codes %}
+                <a href="{{ url_for('redirect_to_url', code=code) }}">
+                    <li>{{ code }}</li>
+                </a>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+</body>
+
+{% endblock %}
+
+</html>
